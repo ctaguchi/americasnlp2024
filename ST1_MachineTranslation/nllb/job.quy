@@ -1,0 +1,19 @@
+#!/bin/bash
+
+MODEL_PATH="quy"
+
+python3 main.py \
+	--model 1.3b \
+	--batch_size 16 \
+	--data train_all \
+	--num_epochs 10 \
+	--learning_rate 1e-4 \
+	--max_es_subtok_length 128 \
+	--training_scheme epochs \
+	--lr_scheduler multiplicativelr \
+	--multiplicativelr_lambda 0.9 \
+	--warmup \
+	--warmup_steps 1000 \
+	--model_save_path $MODEL_PATH \
+	--wandb_project_name nllb-es-quy
+	
